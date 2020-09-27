@@ -16,7 +16,6 @@ struct Resource final {
   struct Memory final {
     VmaAllocator allocator;
     VmaAllocation allocation;
-    VmaAllocationInfo allocation_info;
 
     class Scope;
     template<typename Type>
@@ -110,8 +109,8 @@ struct Resource final {
    public:
     explicit Pool(const GPU& gpu);
 
-    Buffer allocate(const Buffer::Descriptor& descriptor);
-    Image allocate(const Image::Descriptor& descriptor);
+    Buffer buffer(const Buffer::Descriptor& descriptor);
+    Image image(const Image::Descriptor& descriptor);
     void purge();
 
    private:
